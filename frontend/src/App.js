@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-
+import { ReactVideo } from "reactjs-media";
 import './App.css'
 
 async function postImage({image, description}) {
@@ -11,6 +11,9 @@ async function postImage({image, description}) {
   const result = await axios.post('http://localhost:8080/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
   return result.data
 }
+
+
+
 
 function App() {
 
@@ -42,7 +45,16 @@ function App() {
           <img src={image}></img>
         </div>
       ))}
+      //file name - d4338541a40be81d1c91633f49a9b42d
       <img src="http://localhost:8080/images/d4338541a40be81d1c91633f49a9b42d"></img>
+      <div>
+        //cloudfront Distribution domain name
+        <ReactVideo
+            src="cloudfront_distribution_domain_name/docker.mp4"
+            primaryColor="red"
+            // other props
+        />
+      </div>
     </div>
   );
 }
